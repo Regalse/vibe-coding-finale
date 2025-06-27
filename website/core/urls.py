@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from app.views import index, legal, register, login_view, profile
+from app.views import index, legal, register, login_view, profile, threads, create_post
 
 urlpatterns = [
     path('', index, name='index'),
@@ -25,4 +25,6 @@ urlpatterns = [
     path('register/', register, name='register'),
     path('login/', login_view, name='login'),
     path('profile/', profile, name='profile'),
+    path('threads/', threads, name='threads'),
+    path('threads/create/', create_post, name='create_post'),
 ]

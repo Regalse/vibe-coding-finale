@@ -285,4 +285,40 @@ footer a:hover {
 .banana-username-form.show {
     opacity: 1;
     max-height: 200px;
+}
+
+.banana-create-post-card {
+    max-width: 50vw;
+    padding: 36px 3vw 28px 3vw;
+}
+.banana-create-post-card input[type="text"],
+.banana-create-post-card textarea {
+    width: 100%;
+    border: 1.5px solid #ffe066;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 1rem;
+    margin-top: 4px;
+    margin-bottom: 2px;
+    background: #fffdfa;
+    color: #2D1B00;
+}
+.banana-create-post-card input[type="text"]:focus,
+.banana-create-post-card textarea:focus {
+    outline: none;
+    border-color: #e2b100;
+    background: #fffbe7;
+}
+.banana-create-post-card .form-label {
+    color: #a88a1d;
+    font-weight: 500;
+    margin-bottom: 2px;
+}
+
+.banana-post-card {
+    min-height: 220px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 } 

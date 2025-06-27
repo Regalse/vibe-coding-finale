@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .forms import CustomUserCreationForm
+from .forms import CustomUserCreationForm, PostForm
 from django.shortcuts import redirect
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
@@ -7,6 +7,7 @@ from django.contrib.auth import login as auth_login
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth.models import User
+from .models import Post
 
 # Create your views here.
 
@@ -53,3 +54,21 @@ def profile(request):
         else:
             messages.error(request, 'Новое имя пользователя должно отличаться от текущего.')
     return render(request, 'profile.html', {'user': user})
+
+def threads(request):
+    posts = Post.objects.all().order_by('-created_at')
+    return render(request, 'threads.html', {'posts': posts})
+
+@login_required
+def create_post(request):
+    if request.method == 'POST':
+        form = PostForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.save()
+            messages.success(request, 'Пост успешно опубликован!')
+            return redirect('threads')
+    else:
+        form = PostForm()
+    return render(request, 'create_post.html', {'form': form})

@@ -7,7 +7,47 @@
   <div class="banana-card w-100" style="max-width: 700px; text-align: center;">
     <h1 style="color: #e2b100; font-size: 2rem; font-weight: 700;">Юридическая информация</h1>
     <p class="mt-4" style="color: #a88a1d;">Здесь будет размещена юридическая информация о сайте BananaWiki.</p>
-    <p class="text-muted">(страница в разработке)</p>
+    <p class="text-muted">(страница в разработке и может быть обновлена в любой момент)</p>
+    <div class="legal-accordion mb-4">
+      <button class="banana-btn w-100 text-start" type="button" id="legal-disclaimer-toggle" style="font-size:1.1rem;">▶ О проекте и ответственности</button>
+      <div class="legal-accordion-content" id="legal-disclaimer-content">
+        <div class="p-3" style="color:#6b5b1d; font-size:1.08rem;">
+          Сайт BananaWiki создан исключительно в учебных целях. Все совпадения с реальными продуктами, компаниями или действиями случайны и не являются умышленными.
+        </div>
+      </div>
+    </div>
+    <div class="legal-accordion mb-4">
+      <button class="banana-btn w-100 text-start" type="button" id="legal-terms-toggle" style="font-size:1.1rem;">▶ Пользовательское соглашение</button>
+      <div class="legal-accordion-content" id="legal-terms-content">
+        <div class="p-3" style="color:#6b5b1d; font-size:1.08rem;">
+          Сайт собирает и обрабатывает исключительно те данные, которые добровольно предоставляет пользователь в формах и анкетах.
+        </div>
+      </div>
+    </div>
+    <script>
+      const toggleBtn = document.getElementById('legal-disclaimer-toggle');
+      const content = document.getElementById('legal-disclaimer-content');
+      let open = false;
+      if (toggleBtn && content) {
+        content.style.display = 'none';
+        toggleBtn.onclick = function() {
+          open = !open;
+          content.style.display = open ? 'block' : 'none';
+          toggleBtn.textContent = (open ? '▼' : '▶') + ' О проекте и ответственности';
+        };
+      }
+      const termsBtn = document.getElementById('legal-terms-toggle');
+      const termsContent = document.getElementById('legal-terms-content');
+      let openTerms = false;
+      if (termsBtn && termsContent) {
+        termsContent.style.display = 'none';
+        termsBtn.onclick = function() {
+          openTerms = !openTerms;
+          termsContent.style.display = openTerms ? 'block' : 'none';
+          termsBtn.textContent = (openTerms ? '▼' : '▶') + ' Пользовательское соглашение';
+        };
+      }
+    </script>
   </div>
 </div>
 {% endblock %} 

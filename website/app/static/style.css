@@ -339,4 +339,27 @@ footer a:hover {
 .banana-comment-form.show {
     opacity: 1;
     max-height: 200px;
+}
+
+.legal-accordion .banana-btn {
+    background: #ffe066;
+    color: #a88a1d;
+    border: none;
+    border-radius: 8px 8px 0 0;
+    box-shadow: none;
+    font-weight: 500;
+    padding: 12px 18px;
+    margin-bottom: 0;
+    transition: background 0.2s, color 0.2s;
+}
+.legal-accordion .banana-btn:focus {
+    outline: 2px solid #e2b100;
+}
+.legal-accordion-content {
+    background: #fffbe7;
+    border: 2px solid #ffe066;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    margin-bottom: 0;
+    transition: max-height 0.4s, opacity 0.4s;
 } 

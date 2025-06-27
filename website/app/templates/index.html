@@ -96,13 +96,8 @@ function renderFacts(fadeLast = false, fadeOutAll = false) {
   list.innerHTML = '';
   for (let i = 0; i < shown; i++) {
     list.innerHTML += `
-      <div class="banana-fact-row banana-fact-anim d-flex align-items-center justify-content-between mb-3${fadeLast && i === shown-1 ? ' fade-in' : ''}${fadeOutAll ? ' fade-out' : ''}">
+      <div class="banana-fact-row d-flex align-items-center mb-3">
         <div class="banana-fact-text" style="font-style: italic; font-size: 1.1rem;">${facts[i]}</div>
-        <div class="d-flex align-items-center" style="gap: 18px;">
-          <span style="color: #e2557b; font-size: 1.5em;">❤</span>
-          <span style="color: #b89c1d; font-size: 1.1em;">0</span>
-          <span style="color: #bdbdbd; font-size: 1.3em;">🔗</span>
-        </div>
       </div>
     `;
   }

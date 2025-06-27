@@ -8,6 +8,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.contrib.auth.models import User
 from .models import Post
+from django.http import HttpResponseForbidden
 
 # Create your views here.
 
@@ -42,6 +43,7 @@ def login_view(request):
 @login_required
 def profile(request):
     user = request.user
+    user_posts = user.posts.all().order_by('-created_at')
     if request.method == 'POST':
         new_username = request.POST.get('username', '').strip()
         if new_username and new_username != user.username:
@@ -53,7 +55,7 @@ def profile(request):
                 messages.error(request, 'Пользователь с таким именем уже существует.')
         else:
             messages.error(request, 'Новое имя пользователя должно отличаться от текущего.')
-    return render(request, 'profile.html', {'user': user})
+    return render(request, 'profile.html', {'user': user, 'user_posts': user_posts})
 
 def threads(request):
     posts = Post.objects.all().order_by('-created_at')
@@ -91,3 +93,14 @@ def post_detail(request, post_id):
         else:
             form = CommentForm()
     return render(request, 'post_detail.html', {'post': post, 'comments': comments, 'form': form})
+
+@login_required
+def delete_post(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+    if post.author != request.user:
+        return HttpResponseForbidden('Вы не можете удалить этот пост.')
+    if request.method == 'POST':
+        post.delete()
+        messages.success(request, 'Пост успешно удалён!')
+        return redirect('profile')
+    return redirect('profile')

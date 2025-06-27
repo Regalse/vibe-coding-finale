@@ -1,6 +1,36 @@
+:root {
+    --bg-main: #FFFCF5;
+    --text-main: #2D1B00;
+    --card-bg: #fffdfa;
+    --card-border: #ffe066;
+    --accent: #e2b100;
+    --accent2: #b89c1d;
+    --input-bg: #fffdfa;
+    --input-border: #ffe066;
+    --input-focus: #e2b100;
+    --btn-bg: #ffe066;
+    --btn-text: #a88a1d;
+    --btn-hover-bg: #ffe89c;
+    --btn-hover-text: #b89c1d;
+}
+.dark-theme {
+    --bg-main: #1a1207;
+    --text-main: #ffe066;
+    --card-bg: #2d1b00;
+    --card-border: #b89c1d;
+    --accent: #ffe066;
+    --accent2: #ffe89c;
+    --input-bg: #2d1b00;
+    --input-border: #b89c1d;
+    --input-focus: #ffe066;
+    --btn-bg: #b89c1d;
+    --btn-text: #2d1b00;
+    --btn-hover-bg: #ffe066;
+    --btn-hover-text: #2d1b00;
+}
 body {
-    background: #FFFCF5;
-    color: #2D1B00;
+    background: var(--bg-main);
+    color: var(--text-main);
     font-family: 'Segoe UI', Arial, sans-serif;
     min-height: 100vh;
     display: flex;
@@ -13,13 +43,15 @@ header {
 }
 
 header nav ul {
-    background: linear-gradient(to bottom, #ede4c7 0%, #FFFCF5 100%);
+    background: var(--card-bg) !important;
     font-size: 3rem;
     gap: 80px !important;
+    border-color: var(--card-border) !important;
+    color: var(--text-main) !important;
 }
 
 header nav ul li a {
-    color: #2D1B00 !important;
+    color: var(--text-main) !important;
     text-decoration: none;
     font-weight: 700;
     font-size: 2rem;
@@ -27,7 +59,7 @@ header nav ul li a {
 }
 
 header nav ul li a:hover {
-    color: #B8860B !important;
+    color: var(--accent) !important;
     text-decoration: underline;
 }
 
@@ -37,24 +69,25 @@ main {
 }
 
 footer {
-    color: #2D1B00;
-    border-top: 1px solid #ffe5a9;
+    color: var(--text-main);
+    background: var(--card-bg);
+    border-top: 1px solid var(--card-border);
     margin-top: 0;
 }
 
 footer a {
-    color: #2D1B00;
+    color: var(--text-main);
     text-decoration: none;
     transition: color 0.2s;
 }
 
 footer a:hover {
-    color: #b89c1d;
+    color: var(--accent);
     text-decoration: underline;
 }
 
 .banana-card {
-    background: linear-gradient(to bottom, #fffdfa 80%, #FFFCF5 100%);
+    background: var(--card-bg);
     border-radius: 32px;
     box-shadow: 0 4px 32px 0 rgba(200,180,100,0.10);
     padding: 48px 32px 40px 32px;
@@ -62,6 +95,7 @@ footer a:hover {
     max-width: 900px;
     margin: 40px auto;
     transition: box-shadow 0.2s, transform 0.2s;
+    border-color: var(--card-border) !important;
 }
 
 .banana-card:hover {
@@ -73,12 +107,12 @@ footer a:hover {
 .banana-myths-card {
     margin-top: 0;
     margin-bottom: 40px;
-    background: linear-gradient(to bottom, #fffef7 80%, #FFFCF5 100%);
+    background: var(--card-bg);
 }
 
 .banana-myth {
-    background: #fffbe7;
-    border: 2px solid #ffe066;
+    background: var(--card-bg);
+    border: 2px solid var(--card-border);
     border-radius: 10px;
     margin-bottom: 24px;
     padding: 16px 24px;
@@ -89,7 +123,7 @@ footer a:hover {
 }
 .banana-myth:last-child { margin-bottom: 0; }
 .banana-myth-title {
-    color: #a88a1d;
+    color: var(--text-main);
     font-size: 1.15rem;
     font-weight: 500;
 }
@@ -99,7 +133,7 @@ footer a:hover {
     opacity: 0;
     transition: max-height 0.4s cubic-bezier(.4,2,.6,1), opacity 0.3s;
     font-size: 1rem;
-    color: #6b5b1d;
+    color: var(--text-main);
     padding-top: 0;
 }
 .banana-myth.open .banana-myth-content {
@@ -109,7 +143,7 @@ footer a:hover {
 }
 .banana-myth.open {
     box-shadow: 0 4px 16px 0 rgba(200,180,100,0.10);
-    background: #fffde7;
+    background: var(--card-bg);
 }
 .banana-myth:hover {
     transform: translateY(-4px) scale(1.01);
@@ -120,11 +154,11 @@ footer a:hover {
 .banana-facts-card {
     margin-top: 0;
     margin-bottom: 40px;
-    background: linear-gradient(to bottom, #fffef7 80%, #FFFCF5 100%);
+    background: var(--card-bg);
 }
 .banana-btn {
-    background: #ffe066;
-    color: #a88a1d;
+    background: var(--btn-bg);
+    color: var(--btn-text);
     border: none;
     border-radius: 8px;
     padding: 10px 28px;
@@ -137,12 +171,12 @@ footer a:hover {
     display: block;
 }
 .banana-btn:hover {
-    background: #ffe89c;
-    color: #b89c1d;
+    background: var(--btn-hover-bg);
+    color: var(--btn-hover-text);
 }
 .banana-fact-row {
-    background: #fffbe7;
-    border: 2px solid #ffe066;
+    background: var(--card-bg);
+    border: 2px solid var(--card-border);
     border-radius: 10px;
     padding: 14px 20px;
     margin-bottom: 18px;
@@ -177,49 +211,49 @@ footer a:hover {
 .banana-register-card input[type="email"],
 .banana-register-card input[type="password"] {
     width: 100%;
-    border: 1.5px solid #ffe066;
+    border: 1.5px solid var(--input-border);
     border-radius: 8px;
     padding: 8px 12px;
     font-size: 1rem;
     margin-top: 4px;
     margin-bottom: 2px;
-    background: #fffdfa;
-    color: #2D1B00;
+    background: var(--input-bg);
+    color: var(--text-main);
 }
 .banana-register-card input[type="text"]:focus,
 .banana-register-card input[type="email"]:focus,
 .banana-register-card input[type="password"]:focus {
     outline: none;
-    border-color: #e2b100;
-    background: #fffbe7;
+    border-color: var(--input-focus);
+    background: var(--card-bg);
 }
 .banana-register-card .form-label {
-    color: #a88a1d;
+    color: var(--text-main);
     font-weight: 500;
     margin-bottom: 2px;
 }
 .banana-register-card .form-check-label {
-    color: #b89c1d;
+    color: var(--accent2);
     font-size: 1.08rem;
     font-weight: 500;
     margin-left: 8px;
 }
 .banana-register-card .form-check-label a {
-    color: #e2b100;
+    color: var(--accent);
     text-decoration: underline;
 }
 .banana-register-card .form-check-input {
     width: 1.3em;
     height: 1.3em;
-    border: 2px solid #ffe066;
+    border: 2px solid var(--input-border);
     margin-top: 0.2em;
-    accent-color: #ffe066;
-    box-shadow: 0 0 0 2px #ffe06633;
+    accent-color: var(--input-border);
+    box-shadow: 0 0 0 2px var(--input-border)33;
     transition: border-color 0.2s, box-shadow 0.2s;
 }
 .banana-register-card .form-check-input:checked {
-    border-color: #e2b100;
-    box-shadow: 0 0 0 3px #ffe06699;
+    border-color: var(--input-focus);
+    box-shadow: 0 0 0 3px var(--input-border)99;
 }
 
 .banana-login-card {
@@ -229,23 +263,23 @@ footer a:hover {
 .banana-login-card input[type="text"],
 .banana-login-card input[type="password"] {
     width: 100%;
-    border: 1.5px solid #ffe066;
+    border: 1.5px solid var(--input-border);
     border-radius: 8px;
     padding: 8px 12px;
     font-size: 1rem;
     margin-top: 4px;
     margin-bottom: 2px;
-    background: #fffdfa;
-    color: #2D1B00;
+    background: var(--input-bg);
+    color: var(--text-main);
 }
 .banana-login-card input[type="text"]:focus,
 .banana-login-card input[type="password"]:focus {
     outline: none;
-    border-color: #e2b100;
-    background: #fffbe7;
+    border-color: var(--input-focus);
+    background: var(--card-bg);
 }
 .banana-login-card .form-label {
-    color: #a88a1d;
+    color: var(--text-main);
     font-weight: 500;
     margin-bottom: 2px;
 }
@@ -256,22 +290,22 @@ footer a:hover {
 }
 .banana-profile-card input[type="text"] {
     width: 100%;
-    border: 1.5px solid #ffe066;
+    border: 1.5px solid var(--input-border);
     border-radius: 8px;
     padding: 8px 12px;
     font-size: 1rem;
     margin-top: 4px;
     margin-bottom: 2px;
-    background: #fffdfa;
-    color: #2D1B00;
+    background: var(--input-bg);
+    color: var(--text-main);
 }
 .banana-profile-card input[type="text"]:focus {
     outline: none;
-    border-color: #e2b100;
-    background: #fffbe7;
+    border-color: var(--input-focus);
+    background: var(--card-bg);
 }
 .banana-profile-card .form-label {
-    color: #a88a1d;
+    color: var(--text-main);
     font-weight: 500;
     margin-bottom: 2px;
 }
@@ -294,23 +328,23 @@ footer a:hover {
 .banana-create-post-card input[type="text"],
 .banana-create-post-card textarea {
     width: 100%;
-    border: 1.5px solid #ffe066;
+    border: 1.5px solid var(--input-border);
     border-radius: 8px;
     padding: 8px 12px;
     font-size: 1rem;
     margin-top: 4px;
     margin-bottom: 2px;
-    background: #fffdfa;
-    color: #2D1B00;
+    background: var(--input-bg);
+    color: var(--text-main);
 }
 .banana-create-post-card input[type="text"]:focus,
 .banana-create-post-card textarea:focus {
     outline: none;
-    border-color: #e2b100;
-    background: #fffbe7;
+    border-color: var(--input-focus);
+    background: var(--card-bg);
 }
 .banana-create-post-card .form-label {
-    color: #a88a1d;
+    color: var(--text-main);
     font-weight: 500;
     margin-bottom: 2px;
 }
@@ -321,6 +355,8 @@ footer a:hover {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    word-break: break-word;
+    overflow-wrap: anywhere;
 }
 
 .banana-comments-list {
@@ -342,8 +378,8 @@ footer a:hover {
 }
 
 .legal-accordion .banana-btn {
-    background: #ffe066;
-    color: #a88a1d;
+    background: var(--btn-bg);
+    color: var(--btn-text);
     border: none;
     border-radius: 8px 8px 0 0;
     box-shadow: none;
@@ -353,13 +389,102 @@ footer a:hover {
     transition: background 0.2s, color 0.2s;
 }
 .legal-accordion .banana-btn:focus {
-    outline: 2px solid #e2b100;
+    outline: 2px solid var(--input-focus);
 }
 .legal-accordion-content {
-    background: #fffbe7;
-    border: 2px solid #ffe066;
+    background: var(--card-bg);
+    border: 2px solid var(--card-border);
     border-top: none;
     border-radius: 0 0 8px 8px;
     margin-bottom: 0;
     transition: max-height 0.4s, opacity 0.4s;
+}
+
+input, textarea, select {
+    background: var(--input-bg) !important;
+    color: var(--text-main) !important;
+    border-color: var(--input-border) !important;
+}
+input:focus, textarea:focus, select:focus {
+    border-color: var(--input-focus) !important;
+    background: var(--card-bg) !important;
+}
+
+body:not(.dark-theme) .banana-card,
+body:not(.dark-theme) .banana-threads-card,
+body:not(.dark-theme) .banana-post-detail-card,
+body:not(.dark-theme) .banana-create-post-card,
+body:not(.dark-theme) .banana-profile-card,
+body:not(.dark-theme) .banana-login-card,
+body:not(.dark-theme) .banana-register-card {
+    background: linear-gradient(to bottom, #fffdfa 80%, #FFFCF5 100%) !important;
+}
+body:not(.dark-theme) header nav ul {
+    background: linear-gradient(to bottom, #ede4c7 0%, #FFFCF5 100%) !important;
+}
+
+html.dark-theme .banana-card,
+html.dark-theme .banana-threads-card,
+html.dark-theme .banana-post-detail-card,
+html.dark-theme .banana-create-post-card,
+html.dark-theme .banana-profile-card,
+html.dark-theme .banana-login-card,
+html.dark-theme .banana-register-card {
+    background: linear-gradient(to bottom, #2d1b00 80%, #1a1207 100%) !important;
+}
+html.dark-theme header nav ul {
+    background: linear-gradient(to bottom, #3a250e 0%, #1a1207 100%) !important;
+}
+
+html.dark-theme .banana-post-card {
+    background: linear-gradient(to bottom, #3a250e 80%, #2d1b00 100%) !important;
+    border-color: #b89c1d !important;
+}
+
+html.dark-theme .banana-post-card .mb-2 {
+    color: var(--text-main) !important;
+}
+
+html.dark-theme .banana-post-card .text-muted {
+    color: var(--text-main) !important;
+}
+
+html.dark-theme .banana-post-detail-card .post-meta,
+html.dark-theme .banana-post-detail-card .post-body {
+    color: var(--text-main) !important;
+}
+
+html.dark-theme .banana-comment {
+    background: linear-gradient(to bottom, #3a250e 80%, #2d1b00 100%) !important;
+    border-color: #b89c1d !important;
+    color: var(--text-main) !important;
+}
+html.dark-theme .banana-comment .text-muted,
+html.dark-theme .banana-comment span,
+html.dark-theme .banana-comment div {
+    color: var(--text-main) !important;
+}
+
+html.dark-theme input,
+html.dark-theme textarea,
+html.dark-theme select {
+    background: #2d1b00 !important;
+    color: var(--text-main) !important;
+    border-color: #b89c1d !important;
+}
+html.dark-theme input:focus,
+html.dark-theme textarea:focus,
+html.dark-theme select:focus {
+    border-color: #ffe066 !important;
+    background: #3a250e !important;
+    color: var(--text-main) !important;
+}
+html.dark-theme input::placeholder,
+html.dark-theme textarea::placeholder {
+    color: #ffe066 !important;
+    opacity: 1;
+}
+
+html.dark-theme .banana-profile-card .text-muted {
+    color: var(--text-main) !important;
 } 

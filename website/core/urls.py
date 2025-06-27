@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from app.views import index, legal, register, login_view, profile, threads, create_post, post_detail
+from app.views import index, legal, register, login_view, profile, threads, create_post, post_detail, delete_post
 
 urlpatterns = [
     path('', index, name='index'),
@@ -28,4 +28,5 @@ urlpatterns = [
     path('threads/', threads, name='threads'),
     path('threads/create/', create_post, name='create_post'),
     path('threads/<int:post_id>/', post_detail, name='post_detail'),
+    path('threads/<int:post_id>/delete/', delete_post, name='delete_post'),
 ]

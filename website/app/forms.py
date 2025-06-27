@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import Post
+from .models import Post, Comment
 
 class CustomUserCreationForm(UserCreationForm):
     email = forms.EmailField(required=True, label='Email')
@@ -30,4 +30,15 @@ class PostForm(forms.ModelForm):
         labels = {
             'title': 'Название',
             'body': 'Тело поста',
+        }
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ['text']
+        widgets = {
+            'text': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Введите комментарий', 'rows': 3}),
+        }
+        labels = {
+            'text': 'Комментарий',
         } 

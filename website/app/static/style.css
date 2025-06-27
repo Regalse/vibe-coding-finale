@@ -321,4 +321,22 @@ footer a:hover {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+.banana-comments-list {
+    margin-bottom: 2vh;
+}
+.banana-comment {
+    min-height: 60px;
+    font-size: 1rem;
+}
+.banana-comment-form {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.5s, max-height 0.5s;
+}
+.banana-comment-form.show {
+    opacity: 1;
+    max-height: 200px;
 } 

@@ -6,11 +6,6 @@
 <div class="d-flex justify-content-center align-items-center" style="min-height: 70vh;">
   <div class="banana-card banana-profile-card w-100" style="max-width: 650px;">
     <h2 class="text-center mb-4" style="color: #e2b100; font-size: 2rem; font-weight: 700;">Профиль</h2>
-    {% if messages %}
-      {% for message in messages %}
-        <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %} text-center" style="font-size:1.05rem;">{{ message }}</div>
-      {% endfor %}
-    {% endif %}
     <div class="profile-username-row d-flex align-items-center justify-content-between mb-4" style="gap: 10px;">
       <div>
         <span style="color:#a88a1d; font-size:1.15rem;">Имя пользователя:</span>

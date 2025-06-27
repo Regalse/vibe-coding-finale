@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+
+{% block title %}Польза бананов — Все о бананах{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-center align-items-center" style="min-height: 70vh;">
+  <div class="banana-card w-100" style="max-width: 90vw;">
+    <h1 class="banana-title text-center mb-4" style="color: #e2b100; font-size: 2.7rem; font-weight: 700;">
+        🍌 Польза бананов
+    </h1>
+    <div class="lead mb-4" style="font-size: 1.25rem;">
+        Бананы — это не только вкусный, но и очень полезный фрукт. Они богаты калием 🦾, витаминами B6 и C 💊, а также клетчаткой 🌱.
+    </div>
+    <ul class="banana-benefits mb-5" style="font-size: 1.15rem;">
+        <li>🧡 Укрепляют сердце и сосуды благодаря высокому содержанию калия.</li>
+        <li>😊 Помогают поддерживать хорошее настроение и энергию.</li>
+        <li>🪴 Способствуют пищеварению и улучшают работу кишечника.</li>
+        <li>🏃‍♂️ Являются отличным перекусом для спортсменов и активных людей.</li>
+    </ul>
+    <div class="banana-nutrients mb-3" style="font-weight: 600; color: #b89c1d; font-size: 1.2rem;">
+        🥗 Питательные вещества в 1 банане (120 г):
+    </div>
+    <div class="nutrient-bars d-flex align-items-end" style="gap: 30px; max-width: 600px; margin: 0 auto 30px auto;">
+        <div class="text-center">
+            <div style="background: #ffe066; width: 50px; height: 120px; border-radius: 10px 10px 0 0;"></div>
+            <div style="margin-top: 8px; color: #b89c1d; font-weight: 500;">Калий</div>
+        </div>
+        <div class="text-center">
+            <div style="background: #ffe066; width: 50px; height: 70px; border-radius: 10px 10px 0 0;"></div>
+            <div style="margin-top: 8px; color: #b89c1d; font-weight: 500;">B6</div>
+        </div>
+        <div class="text-center">
+            <div style="background: #ffd43b; width: 50px; height: 60px; border-radius: 10px 10px 0 0;"></div>
+            <div style="margin-top: 8px; color: #b89c1d; font-weight: 500;">Вит. C</div>
+        </div>
+        <div class="text-center">
+            <div style="background: #ffe066; width: 50px; height: 40px; border-radius: 10px 10px 0 0;"></div>
+            <div style="margin-top: 8px; color: #b89c1d; font-weight: 500;">Клетч.</div>
+        </div>
+        <div class="text-center">
+            <div style="background: #ffe066; width: 50px; height: 30px; border-radius: 10px 10px 0 0;"></div>
+            <div style="margin-top: 8px; color: #b89c1d; font-weight: 500;">Магний</div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="d-flex justify-content-center align-items-center" style="min-height: 10vh;">
+  <div class="banana-card w-100 banana-myths-card" style="max-width: 90vw;">
+    <h2 class="text-center mb-4" style="color: #e2b100; font-size: 2rem; font-weight: 700;">🍌 Мифы о бананах</h2>
+    <div class="banana-myth" onclick="toggleMyth(this)">
+      <div class="banana-myth-title">Бананы сильно калорийны и способствуют набору веса</div>
+      <div class="banana-myth-content">На самом деле бананы содержат умеренное количество калорий (примерно 100–120 ккал на плод) и не способствуют набору веса при сбалансированном питании.</div>
+    </div>
+    <div class="banana-myth" onclick="toggleMyth(this)">
+      <div class="banana-myth-title">Бананы нельзя есть при диабете</div>
+      <div class="banana-myth-content">Бананы можно есть при диабете в умеренных количествах, учитывая общий гликемический индекс рациона и рекомендации врача.</div>
+    </div>
+    <div class="banana-myth" onclick="toggleMyth(this)">
+      <div class="banana-myth-title">Бананы — это фрукт</div>
+      <div class="banana-myth-content">С ботанической точки зрения банан — это ягода, а не фрукт!</div>
+    </div>
+  </div>
+</div>
+
+<div class="d-flex justify-content-center align-items-center" style="min-height: 10vh;">
+  <div class="banana-card w-100 banana-facts-card" style="max-width: 90vw;">
+    <h2 class="text-center mb-4" style="color: #e2b100; font-size: 2rem; font-weight: 700;">🍌 Факты о бананах</h2>
+    <div id="banana-facts-app">
+      <button id="show-more-facts" class="banana-btn mb-3">Показать ещё</button>
+      <div class="text-center mb-3" style="color: #b89c1d; font-weight: 500;">Показано фактов: <span id="facts-count">0</span></div>
+      <div id="facts-list"></div>
+      <button id="hide-facts" class="banana-btn mt-4" style="display:none;"><span style="font-size:1.2em;">🗑️</span> Скрыть все факты</button>
+    </div>
+  </div>
+</div>
+
+<script>
+function toggleMyth(el) {
+  el.classList.toggle('open');
+}
+
+const facts = [
+  'В Японии популярен банановый завтрак для похудения 🥗.',
+  'Бананы могут помочь при депрессии благодаря содержанию витаминов и минералов 😊.',
+  'Бананы могут помочь снизить артериальное давление 🩺.',
+  'Бананы — одна из самых популярных культур в мире 🌍.',
+  'В бананах нет жиров и холестерина 🚫.',
+  'Бананы — отличный источник энергии для спортсменов 🏋️‍♂️.'
+];
+let shown = 0;
+const perClick = 1;
+
+function renderFacts(fadeLast = false, fadeOutAll = false) {
+  const list = document.getElementById('facts-list');
+  list.innerHTML = '';
+  for (let i = 0; i < shown; i++) {
+    list.innerHTML += `
+      <div class="banana-fact-row banana-fact-anim d-flex align-items-center justify-content-between mb-3${fadeLast && i === shown-1 ? ' fade-in' : ''}${fadeOutAll ? ' fade-out' : ''}">
+        <div class="banana-fact-text" style="font-style: italic; font-size: 1.1rem;">${facts[i]}</div>
+        <div class="d-flex align-items-center" style="gap: 18px;">
+          <span style="color: #e2557b; font-size: 1.5em;">❤</span>
+          <span style="color: #b89c1d; font-size: 1.1em;">0</span>
+          <span style="color: #bdbdbd; font-size: 1.3em;">🔗</span>
+        </div>
+      </div>
+    `;
+  }
+  document.getElementById('facts-count').textContent = shown;
+  document.getElementById('hide-facts').style.display = shown ? '' : 'none';
+}
+
+document.getElementById('show-more-facts').onclick = function() {
+  if (shown < facts.length) {
+    shown = Math.min(shown + perClick, facts.length);
+    renderFacts(true, false);
+  }
+};
+document.getElementById('hide-facts').onclick = function() {
+  renderFacts(false, true);
+  setTimeout(() => {
+    shown = 0;
+    renderFacts();
+  }, 700);
+};
+
+renderFacts();
+</script>
+{% endblock %} 

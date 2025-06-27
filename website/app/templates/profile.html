@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}Профиль — BananaWiki{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-center align-items-center" style="min-height: 70vh;">
+  <div class="banana-card banana-profile-card w-100" style="max-width: 650px;">
+    <h2 class="text-center mb-4" style="color: #e2b100; font-size: 2rem; font-weight: 700;">Профиль</h2>
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %} text-center" style="font-size:1.05rem;">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+    <div class="profile-username-row d-flex align-items-center justify-content-between mb-4" style="gap: 10px;">
+      <div>
+        <span style="color:#a88a1d; font-size:1.15rem;">Имя пользователя:</span>
+        <span style="color:#2D1B00; font-size:1.15rem; font-weight:600;">{{ user.username }}</span>
+      </div>
+      <button id="show-username-form" class="banana-btn" type="button" style="padding: 6px 18px; font-size:1rem;">Изменить</button>
+    </div>
+    <form id="username-form" method="post" class="mb-4 banana-username-form" novalidate style="display:none;">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label for="username" class="form-label">Новое имя пользователя</label>
+        <input type="text" class="form-control" id="username" name="username" value="{{ user.username }}" required>
+      </div>
+      <button type="submit" class="banana-btn w-100">Сохранить</button>
+    </form>
+    <hr>
+    <h4 class="mb-3" style="color:#b89c1d;">Ваши посты</h4>
+    <div class="text-muted text-center" style="font-size:1.1rem;">Пока у вас нет постов.</div>
+  </div>
+</div>
+<script>
+const showBtn = document.getElementById('show-username-form');
+const form = document.getElementById('username-form');
+if (showBtn && form) {
+  showBtn.onclick = function() {
+    form.style.display = 'block';
+    setTimeout(() => form.classList.add('show'), 10);
+    showBtn.style.display = 'none';
+  };
+}
+</script>
+{% endblock %} 

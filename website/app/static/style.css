@@ -1,0 +1,288 @@
+body {
+    background: #FFFCF5;
+    color: #2D1B00;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background: transparent;
+    margin-bottom: 30px;
+}
+
+header nav ul {
+    background: linear-gradient(to bottom, #ede4c7 0%, #FFFCF5 100%);
+    font-size: 3rem;
+    gap: 80px !important;
+}
+
+header nav ul li a {
+    color: #2D1B00 !important;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 2rem;
+    transition: color 0.2s;
+}
+
+header nav ul li a:hover {
+    color: #B8860B !important;
+    text-decoration: underline;
+}
+
+main {
+    flex: 1 0 auto;
+    min-height: 60vh;
+}
+
+footer {
+    color: #2D1B00;
+    border-top: 1px solid #ffe5a9;
+    margin-top: 0;
+}
+
+footer a {
+    color: #2D1B00;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+footer a:hover {
+    color: #b89c1d;
+    text-decoration: underline;
+}
+
+.banana-card {
+    background: linear-gradient(to bottom, #fffdfa 80%, #FFFCF5 100%);
+    border-radius: 32px;
+    box-shadow: 0 4px 32px 0 rgba(200,180,100,0.10);
+    padding: 48px 32px 40px 32px;
+    width: 85vw;
+    max-width: 900px;
+    margin: 40px auto;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.banana-card:hover {
+    transform: translateY(-2px) scale(1.005);
+    box-shadow: 0 2px 6px 0 rgba(200,180,100,0.08);
+    z-index: 1;
+}
+
+.banana-myths-card {
+    margin-top: 0;
+    margin-bottom: 40px;
+    background: linear-gradient(to bottom, #fffef7 80%, #FFFCF5 100%);
+}
+
+.banana-myth {
+    background: #fffbe7;
+    border: 2px solid #ffe066;
+    border-radius: 10px;
+    margin-bottom: 24px;
+    padding: 16px 24px;
+    cursor: pointer;
+    transition: box-shadow 0.2s, transform 0.2s;
+    box-shadow: 0 2px 8px 0 rgba(200,180,100,0.05);
+    position: relative;
+}
+.banana-myth:last-child { margin-bottom: 0; }
+.banana-myth-title {
+    color: #a88a1d;
+    font-size: 1.15rem;
+    font-weight: 500;
+}
+.banana-myth-content {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.4s cubic-bezier(.4,2,.6,1), opacity 0.3s;
+    font-size: 1rem;
+    color: #6b5b1d;
+    padding-top: 0;
+}
+.banana-myth.open .banana-myth-content {
+    max-height: 200px;
+    opacity: 1;
+    padding-top: 12px;
+}
+.banana-myth.open {
+    box-shadow: 0 4px 16px 0 rgba(200,180,100,0.10);
+    background: #fffde7;
+}
+.banana-myth:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 4px 12px 0 rgba(200,180,100,0.12);
+    z-index: 2;
+}
+
+.banana-facts-card {
+    margin-top: 0;
+    margin-bottom: 40px;
+    background: linear-gradient(to bottom, #fffef7 80%, #FFFCF5 100%);
+}
+.banana-btn {
+    background: #ffe066;
+    color: #a88a1d;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 28px;
+    font-size: 1.15rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px 0 rgba(200,180,100,0.05);
+    margin: 0 auto;
+    display: block;
+}
+.banana-btn:hover {
+    background: #ffe89c;
+    color: #b89c1d;
+}
+.banana-fact-row {
+    background: #fffbe7;
+    border: 2px solid #ffe066;
+    border-radius: 10px;
+    padding: 14px 20px;
+    margin-bottom: 18px;
+    min-height: 48px;
+}
+
+.banana-fact-anim {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transition: opacity 0.7s cubic-bezier(.4,2,.6,1), transform 0.7s cubic-bezier(.4,2,.6,1);
+}
+.banana-fact-anim.fade-in {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+    animation: banana-fade-in 0.7s cubic-bezier(.4,2,.6,1) forwards;
+}
+@keyframes banana-fade-in {
+    from { opacity: 0; transform: translateY(30px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.banana-fact-anim.fade-out {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+    transition: opacity 0.7s cubic-bezier(.4,2,.6,1), transform 0.7s cubic-bezier(.4,2,.6,1);
+}
+
+.banana-register-card {
+    max-width: 400px;
+    padding: 36px 24px 28px 24px;
+}
+.banana-register-card input[type="text"],
+.banana-register-card input[type="email"],
+.banana-register-card input[type="password"] {
+    width: 100%;
+    border: 1.5px solid #ffe066;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 1rem;
+    margin-top: 4px;
+    margin-bottom: 2px;
+    background: #fffdfa;
+    color: #2D1B00;
+}
+.banana-register-card input[type="text"]:focus,
+.banana-register-card input[type="email"]:focus,
+.banana-register-card input[type="password"]:focus {
+    outline: none;
+    border-color: #e2b100;
+    background: #fffbe7;
+}
+.banana-register-card .form-label {
+    color: #a88a1d;
+    font-weight: 500;
+    margin-bottom: 2px;
+}
+.banana-register-card .form-check-label {
+    color: #b89c1d;
+    font-size: 1.08rem;
+    font-weight: 500;
+    margin-left: 8px;
+}
+.banana-register-card .form-check-label a {
+    color: #e2b100;
+    text-decoration: underline;
+}
+.banana-register-card .form-check-input {
+    width: 1.3em;
+    height: 1.3em;
+    border: 2px solid #ffe066;
+    margin-top: 0.2em;
+    accent-color: #ffe066;
+    box-shadow: 0 0 0 2px #ffe06633;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+.banana-register-card .form-check-input:checked {
+    border-color: #e2b100;
+    box-shadow: 0 0 0 3px #ffe06699;
+}
+
+.banana-login-card {
+    max-width: 400px;
+    padding: 36px 24px 28px 24px;
+}
+.banana-login-card input[type="text"],
+.banana-login-card input[type="password"] {
+    width: 100%;
+    border: 1.5px solid #ffe066;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 1rem;
+    margin-top: 4px;
+    margin-bottom: 2px;
+    background: #fffdfa;
+    color: #2D1B00;
+}
+.banana-login-card input[type="text"]:focus,
+.banana-login-card input[type="password"]:focus {
+    outline: none;
+    border-color: #e2b100;
+    background: #fffbe7;
+}
+.banana-login-card .form-label {
+    color: #a88a1d;
+    font-weight: 500;
+    margin-bottom: 2px;
+}
+
+.banana-profile-card {
+    max-width: 500px;
+    padding: 36px 24px 28px 24px;
+}
+.banana-profile-card input[type="text"] {
+    width: 100%;
+    border: 1.5px solid #ffe066;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 1rem;
+    margin-top: 4px;
+    margin-bottom: 2px;
+    background: #fffdfa;
+    color: #2D1B00;
+}
+.banana-profile-card input[type="text"]:focus {
+    outline: none;
+    border-color: #e2b100;
+    background: #fffbe7;
+}
+.banana-profile-card .form-label {
+    color: #a88a1d;
+    font-weight: 500;
+    margin-bottom: 2px;
+}
+
+.banana-username-form {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.5s, max-height 0.5s;
+}
+.banana-username-form.show {
+    opacity: 1;
+    max-height: 200px;
+} 
